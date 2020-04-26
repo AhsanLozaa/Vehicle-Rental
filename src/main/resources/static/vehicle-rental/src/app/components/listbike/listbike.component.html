@@ -1,0 +1,35 @@
+<h3>Bike</h3>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4" style="margin-bottom: 10px;">
+      <input type="text" [(ngModel)]="make" class="form-control" id="filterInput" placeholder="search by make"
+        (input)="Search()" />
+      {{make}}
+    </div>
+    <div class="col">
+      <!-- <div *ngIf='listFilter' class="form-text text-muted">Filtered by: {{listFilter}}</div> -->
+    </div>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <th>Plate Number</th>
+      <th>Make</th>
+      <th>Rent Rate</th>
+      <th>Carriage</th>
+      <th>Gear</th>
+      <th>Vehicle Type</th>
+      <th>Operations</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let bike of bikes">
+        <td>{{bike._id}}</td>
+        <td>{{bike.make}}</td>
+        <td>{{bike.rentRate}}</td>
+        <td>{{bike.isCarriage}}</td>
+        <td>{{bike.isGear}}</td>
+        <td>{{bike.vehicleType}}</td>
+        <td class="btn btn-primary" (click)="onButtonClick()">Book</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
